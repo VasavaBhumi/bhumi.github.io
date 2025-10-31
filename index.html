@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS - Personal AI Assistant</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <div class="arc-reactor"></div>
+      </div>
+      <h1>JARVIS</h1>
+      <p class="subtitle">Just A Rather Very Intelligent System</p>
+    </div>
+
+    <div class="status-bar">
+      <div class="status-item">
+        <span class="status-label">Status:</span>
+        <span id="status" class="status-value">Initializing...</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Knowledge Base:</span>
+        <span id="knowledge-count" class="status-value">0 topics</span>
+      </div>
+    </div>
+
+    <div class="main-interface">
+      <div class="conversation-panel">
+        <div id="conversation-log" class="conversation-log">
+          <div class="system-message">
+            <span class="message-icon">⚡</span>
+            <span>JARVIS initialization complete. How may I assist you today?</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-panel">
+        <div class="input-section">
+          <div class="voice-button-container">
+            <button id="voice-btn" class="voice-button" title="Click to speak">
+              <div class="pulse-ring"></div>
+              <div class="voice-icon">🎤</div>
+            </button>
+            <div id="listening-indicator" class="listening-indicator">Listening...</div>
+          </div>
+
+          <div class="text-input-container">
+            <input
+              type="text"
+              id="text-input"
+              placeholder="Type your command or press microphone to speak..."
+              autocomplete="off"
+            >
+            <button id="send-btn" class="send-button">Send</button>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <button class="action-btn" data-action="learn">📚 Teach Me</button>
+          <button class="action-btn" data-action="query">❓ Query Knowledge</button>
+          <button class="action-btn" data-action="clear">🗑️ Clear Chat</button>
+          <button class="action-btn" data-action="export">💾 Export Knowledge</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="learning-panel" id="learning-panel" style="display: none;">
+      <h3>Teach JARVIS</h3>
+      <div class="learning-form">
+        <input
+          type="text"
+          id="topic-input"
+          placeholder="Enter topic name..."
+        >
+        <textarea
+          id="content-input"
+          placeholder="Enter information about this topic..."
+          rows="5"
+        ></textarea>
+        <input
+          type="text"
+          id="keywords-input"
+          placeholder="Enter keywords (comma-separated)..."
+        >
+        <div class="learning-actions">
+          <button id="save-knowledge-btn" class="primary-btn">Save Knowledge</button>
+          <button id="cancel-learning-btn" class="secondary-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="knowledge-base-panel" id="knowledge-base-panel" style="display: none;">
+      <h3>Knowledge Base</h3>
+      <div id="knowledge-list" class="knowledge-list"></div>
+      <button id="close-knowledge-btn" class="secondary-btn">Close</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
